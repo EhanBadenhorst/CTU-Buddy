@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<!-- saved from url=(0110)file:///C:/Users/baden/OneDrive/Documents/CTU/Asesments/ctu%20buddy/Phase%201%20groep%20Ehan/Website/Home.html -->
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTU-Buddy | Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+
+        <h1>
+            <p>Contact us</p>
+            <p>Get in contact with us directly</p>
+        </h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Time tabel.html">Timetable</a></li>
+            <li><a href="Discussion.html">Discussion</a></li>
+            <li><a href="share_resources.html">Share Resources</a></li>
+            <li><a href="About us.html">About Us</a></li>
+            <li><a href="contact us.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <main>
+        <main class="fade-in">...</main>
+        <section style="text-align: center;">
+            <p>New prospective clients / enquiries: enquiry@ctutraining.co.za</p>
+            <p>National contact centre: 0861 100 395</p>
+            <p>Send a Whatsapp: 083 825 9366</p>
+            <p>Visit our web site at ctutraining.ac.za</p>
+            <h2>Send us a message</h2>
+            <form>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="surname">Surname:</label>
+                <input type="text" id="surname" name="surname" required><br><br>
+                <label for="cellnumber">Cell Number:</label>
+                <input type="tel" id="cellnumber" name="cellnumber" required><br><br>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea><br><br>
+                <input type="submit" value="Send">
+            </form>
+        </section>
+        <div id="map" style="width: 500px; height: 300px; margin: 0 auto;"></div>
+    </main>
+    <footer>
+        <p> @ 2024 CTU-Buddy Educational System. All Rights Reserved.</p>
+    </footer>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdUvKcZDkb2w2PDh9iX3NF3MCZvxrHNb0&callback=initMap" async defer></script>
+    <script>
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: -33.92868688232884, lng: 18.858899613341517},
+                zoom: 16,
+            });
+    
+            const marker = new google.maps.Marker({
+                position: { lat: -33.92868688232884, lng: 18.858899613341517   },
+                map: map,
+                title: "CTU Training",
+            });
+        }
+
+        // Add event listener to prevent page scrolling when hovering over the map
+        const mapDiv = document.getElementById('map');
+        mapDiv.addEventListener('wheel', (e) => {
+            if (e.ctrlKey) {
+                e.preventDefault();
+            }
+        });
+
+
+mapDiv.addEventListener('DOMMouseScroll', (e) => {
+    if (e.ctrlKey) {
+        e.preventDefault();
+    }
+});
+    </script>
+</body>
+</html>

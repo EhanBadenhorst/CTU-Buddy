@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTU-Buddy | Discussion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+
+        <h1>CTU-Buddy | Discussion</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Time tabel.html">Timetable</a></li>
+            <li><a href="Discussion.html">Discussion</a></li>
+            <li><a href="share_resources.html">Share Resources</a></li>
+            <li><a href="About us.html">About Us</a></li>
+            <li><a href= "contact us.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <main>
+        
+        <section>
+            <h2>Discussion Forum</h2>
+            <p>This is a static discussion page. The functionality for posting and responding will be added later.</p>
+            <div class="discussion-placeholder">
+                <script>
+                    import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
+
+firebase.initializeApp({
+  apiKey: '<API_KEY>',
+  authDomain: '<AUTH_DOMAIN>',
+  databaseURL: '<DATABASE_URL>',
+});
+
+const auth = firebase.auth();
+const database = firebase.database();
+
+submitBtn.addEventListener('click', () => {
+  const userInputText = userInput.value;
+  const userId = auth.currentUser.uid;
+  const newTextElement = document.createElement('p');
+  newTextElement.textContent = userInputText;
+  textContainer.appendChild(newTextElement);
+  userInput.value = ''; // clear the input field
+
+  // Store the text input in the Realtime Database
+  database.ref(`users/${userId}/text`).push({
+    text: userInputText,
+    timestamp: Date.now(),
+  });
+});
+     
+
+                </script>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 CTU-Buddy Educational System. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

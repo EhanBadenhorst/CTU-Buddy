@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTU-Buddy | Timetable</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+
+        <h1>CTU-Buddy | Timetable</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Time tabel.html">Timetable</a></li>
+            <li><a href="Discussion.html">Discussion</a></li>
+            <li><a href="share_resources.html">Share Resources</a></li>
+            <li><a href="About us.html">About Us</a></li>
+            <li><a href= "contact us.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>Your Weekly Schedule</h2>
+         
+                <table>
+                    <tr>
+                      <th>Day</th>
+                      <th>9:00 - 10:30</th>
+                      <th>10:45 - 12:15</th>
+                      <th>1:00 - 2:45</th>
+                      <th>2:00 - 3:00</th>
+                    </tr>
+                    <tr>
+                      <td id="monday-date"></td>       <!--  day1 -->
+                      <td>Mathematics</td>
+                      <td>English</td>
+                      <td>Computer Science</td>
+                      <td>History</td>
+                    </tr>
+                    <tr>
+                      <td id="tuesday-date"></td>         <!--  day2 -->
+                      <td>History</td>
+                      <td>Afrikaans</td>
+                      <td>Mathematics</td>
+                      <td>Life Science</td>
+                    </tr>
+                    <tr>
+                      <td id="wednesday-date"></td>         <!--  day3 -->
+                      <td>Computer Science</td>
+                      <td>Afrikaans</td>
+                      <td>Life Science</td>
+                      <td>History</td>
+                    </tr>
+                    <tr>
+                      <td id="thursday-date"></td>         <!--  day4 -->
+                      <td>English</td>
+                      <td>Mathematics</td>
+                      <td>History</td>
+                      <td>Afrikaans</td>
+                    </tr>
+                    <tr>
+                      <td id="friday-date"></td>         <!--  day5 -->
+                      <td>Mathematics</td>
+                      <td>History</td>
+                      <td>Life Science</td>
+                      <td>Afrikaans</td>
+                    </tr>
+                  </table>
+                  <script>
+                  const mondayDateElement = document.getElementById('monday-date');
+                  const tuesdayDateElement = document.getElementById('tuesday-date');
+                  const wednesdayDateElement = document.getElementById('wednesday-date');
+                  const thursdayDateElement = document.getElementById('thursday-date');
+                  const fridayDateElement = document.getElementById('friday-date');
+                  
+                  const currentDate = new Date();
+                  const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+                  
+                  // function to get the date for a specific day of the week
+                  function getDateForDay(day) {
+                    const date = new Date(currentDate);
+                    date.setDate(date.getDate() + (day - currentDate.getDay()));
+                    return date;
+                  }
+                  
+                  // update the date elements
+                  mondayDateElement.textContent = `${daysOfWeek[0]} - ${getDateForDay(1).toLocaleDateString()}`;
+                  tuesdayDateElement.textContent = `${daysOfWeek[1]} - ${getDateForDay(2).toLocaleDateString()}`;
+                  wednesdayDateElement.textContent = `${daysOfWeek[2]} - ${getDateForDay(3).toLocaleDateString()}`;
+                  thursdayDateElement.textContent = `${daysOfWeek[3]} - ${getDateForDay(4).toLocaleDateString()}`;
+                  fridayDateElement.textContent = `${daysOfWeek[4]} - ${getDateForDay(5).toLocaleDateString()}`;
+                </script>
+            
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 CTU-Buddy Educational System. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
